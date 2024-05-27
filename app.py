@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, g, redirect, jsonify, make_response, flash
 import os
+from dotenv import load_dotenv
 from werkzeug.security import check_password_hash, generate_password_hash
 import sqlite3
 from datetime import timedelta, datetime, timezone
@@ -9,12 +10,23 @@ from FDataBase import FDataBase
 
 app = Flask(__name__)
 
-SECRET_KEY = '7aab61b9c7eee16d0b46c88ff751fc89bf37284f'
+load_dotenv()
+SECRET_KEY = os.getenv('SECRET_KEY')
+JWT_KEY = os.getenv('JWT_KEY')
+
+if SECRET_KEY is None:
+    SECRET_KEY = "default_secret_key_should_be_changed"
+
+if JWT_KEY is None:
+    JWT_KEY = "default_jwt_key_should_be_changed"
+
+
 DATABASE = '/tmp/site.db'
 DEBUG = True
 
 TOKEN_EXPIRES_LIFE = 300  # время жизни токена в секундах
-app.config["JWT_SECRET_KEY"] = "348b218f06ebb2554f25ddf80b3f7058c49624b6"  # секретный ключ
+
+app.config["JWT_SECRET_KEY"] = JWT_KEY  # секретный ключ
 app.config["JWT_ACCESS_TOKEN_EXPIRES"] = timedelta(seconds=TOKEN_EXPIRES_LIFE)  # время жизни токена
 app.config['JWT_TOKEN_LOCATION'] = ['cookies']  # место, в котором нужно искать токен
 app.config['JWT_CSRF_IN_COOKIES'] = False  # запрет хранения CSRF-токена в куки-файлах
@@ -212,6 +224,7 @@ def get_case():
 # Главная страница
 @app.route('/', methods=["POST", "GET"])
 def hello():
+    return JWT_KEY
     news = dbase.getNews(4)
     return render_template('main.html', news=news)
 
