@@ -1,0 +1,26 @@
+<html lang = "ru">
+	<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<meta charset = "UTF-8">
+		<title>Поиск по делу</title>
+		
+	</head>
+	
+<body>
+<div class="registration-form">
+    <form action = "/cabinet/get_case" method="post">
+    <div class="form-group">
+      <label for="case_id">Номер дела:</label>
+      <input type="text" id="case_id" name="case_id">
+    </div>
+    
+    
+    <button type="submit">Добавить дело</button>
+	<div class="redirect_link">
+      <a href="/cabinet">Вернуться в кабинет</a>
+    </div>
+	</div>
+  </form>
+  </div>
+</body>
+</html>

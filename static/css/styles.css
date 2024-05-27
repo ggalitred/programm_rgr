@@ -1,0 +1,340 @@
+img {
+	float: left;
+	margin: 15px;
+}
+
+body {
+	background-color: #e3e3e1;
+}
+
+#top-block{
+	border: 1px solid black;
+	font-size: 50px;
+	text-align: center;
+	background-color: white;
+	border-radius: 15px;
+}
+
+#main-block{
+	height:auto;
+	border: 1px solid black;
+	font-size: 50px;	
+	margin-top: 45px;
+	border-radius: 15px;
+}
+
+#news-block {
+	position: top;
+	text-align: center;
+	font-size: 30px;
+	padding: 10px;
+	height: 100%;
+	width: 23%;
+	float: left;
+	margin-left: 10px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	border-radius: 7px;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+#news-block li {
+	font-size: 23px;
+	text-align: justify;
+	width: 90%;
+}
+
+#news-block ul {
+	text-align: left;
+}
+
+.news_title {
+    text-decoration: none;
+    color: black;
+}
+
+#schedule-block {
+	margin-top: 10px;
+	margin-right: 10px;
+	text-align: left;
+	font-size: 25px;
+	width: 100%;
+	height: 75%;
+	float: right;
+	border-radius: 7px;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#schedule-block ul {
+	
+	list-style-type: none;
+}
+
+#schedule-block h4 {
+	text-align: center;
+}
+
+#information-block {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-size: 25px;
+	width: 50%;
+	height: auto;
+	border-radius: 7px;
+	margin-top: 10px;
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-bottom: 10px;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#information-block p {
+	 text-align: justify;
+	 padding-right: 7px;
+	 padding-left: 7px;
+}
+
+#news-block, #schedule-block {
+	align-self: flex-start;
+}
+
+
+.column {
+	display: flex;
+	flex-direction: column;
+	margin-right: 10px;
+	flex-grow: 1;
+}
+
+.column div {
+	margin-bottom: 10px;
+}
+
+.row {
+    display: flex;
+	flex-direction: row;
+
+}
+
+.row p {
+	font-size: 20px;
+}
+
+.row img {
+	width: 300px;
+	height: 169px;
+	border-radius: 10px;
+}
+
+/*
+.row img:hover {
+	width: 360px;
+	height: 202.8px;
+}*/
+
+.row .workers {
+	border: 2px solid black;
+}
+
+#cabinet_info {
+	margin-top: 10px;
+	float: right;
+	border-radius: 7px;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	height: 25%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 25px;
+	text-decoration: none;
+}
+
+
+/* Регистрация и авторизация */
+
+.registration-form, .login-form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: white;
+  
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.user-profile-block {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.user-profile-block h3 {
+  margin-top: 0;
+}
+
+.user-profile-block p {
+  margin: 10px 0;
+}
+
+.flash {padding: 10px;}
+.flash.success {
+    border: 1px solid #21DB56;
+    background: #AEFFC5;
+}
+.flash.error {
+    border: 1px solid #FF4343;
+    background: #FF9C9C;
+}
+
+
+.redirect_link a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.redirect_link a:hover {
+	color: #ffffff;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+.redirect_link_cabinet a {
+	color: #969393;
+	text-decoration: none;
+	font-size: 14px;
+  }
+  
+  .redirect_link_cabinet a:hover {
+	  color: #4e4b4b;
+	  text-decoration: none;
+	  font-size: 14px;
+  }
+
+
+.description {
+	width: 100%;
+	resize: vertical;
+}
+
+
+/* Стили для контейнера карточек */
+.card-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  padding: 40px;
+}
+
+/* Стили для карточки */
+.card {
+  width: 70%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Стили для заголовка карточки */
+.card-title {
+  background-color: #f2f2f2;
+  padding: 15px;
+  
+  font-weight: bold;
+}
+
+/* Стили для содержимого карточки */
+.card-content {
+  padding: 25px;
+}
+
+.card .pass_access {
+	float:left;
+	width: 45%;
+	margin: 10px;
+}
+
+.card .deny_access {
+	float: right;
+	width: 45%;
+	margin: 10px;
+	background-color: red;
+}
+
+.card .deny_access:hover {
+	background-color: #A60000;
+}
+
+.show_applications {
+  position: fixed;
+  top: 25%;
+  left: 3%;
+  transform: translateY(-50%);
+  background-color: white;
+  color: white;
+  border: none;
+  border-radius: 7px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.show_applications button {
+	margin-top: 5%;
+}
+
+.show_applications h4 {
+	color: black;
+}
+
+.app_passed {
+}
+
+.app_waited {
+}
+
+.app_rejected {
+}
+
+.news_list {
+    margin-top: 10px;
+}

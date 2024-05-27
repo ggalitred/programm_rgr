@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<!--<script src={{ url_for('static', filename='js/cases_script.js') }}></script>-->
+		
+		<meta charset = "UTF-8">
+		<title>Дела</title>
+		
+	</head>
+<body>
+<script async src={{ url_for('static', filename='js/cases_script.js')}}></script>
+<div class="show_applications">
+<h4>Настройки отображения</h4>
+<button class="showPassed" id="show-passed">Одобренные дела</button>
+<button class="showRejected" id="show-rejected">Отклоненные дела</button>
+<button class="showWaited" id="show-passed">Ожидают рассмотрения</button>
+</div>
+
+
+  <div class="card-container">
+	{% for row in rows %}
+	
+	{% if row[1] == "wait" %}
+	<div class="app_waited card">
+      <h3 class="card-title">Дело №{{ row[0] }}</h3>
+      <div class="card-content">
+		<p>Заявка на рассмотрении</p>
+      </div>
+    </div>
+	
+	{% elif row[1] == "pass" %}
+	<div class="app_passed card">
+      <h3 class="card-title">Дело №{{ row[0] }}</h3>
+      <div class="card-content">
+		<p>{{ row[2] }}</p>
+      </div>
+    </div>
+	
+	{% elif row[1] == "reject" %}
+	<div class="app_rejected card">
+      <h3 class="card-title">Дело №{{ row[0] }}</h3>
+      <div class="card-content">
+		<p>В заявке отказано!</p>
+      </div>
+    </div>
+	
+	{% endif %}
+	{% endfor %}
+  </div>
+  
+</body>
+</html>

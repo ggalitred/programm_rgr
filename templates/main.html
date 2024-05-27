@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <style>
+        .block-wrapper {
+            padding: 30px;
+            border: 1px solid #e9ecef;
+            border-radius: 5px;
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        }
+
+        .news-card {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row py-4" style="background-color: #f5f5f5;">
+            <div class="col-auto">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Coat_of_Arms_of_Novosibirsk.svg/1200px-Coat_of_Arms_of_Novosibirsk.svg.png"
+                    height="80" width="80" alt="Герб Новосибирска">
+            </div>
+            <div class="col align-self-center">
+                <h1>Суд Новосибирской области</h1>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-md-3">
+                <div class="block-wrapper">
+                    <div class="p-1">
+                        <h3>Список услуг</h3>
+                        <h6>Правовая экспертиза документов - 2000 рублей</h6>
+                        <h6>Консультация юриста по вопросам судопроизводства - 2500 рублей за час</h6>
+                        <h6>Подготовка апелляционной жалобы - 3000 рублей</h6>
+                        <h5>По всем вопросам обращаться в службу услуг</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="block-wrapper">
+                    <a href="/news_list" class="text-decoration-none text-dark"><h2>Новости</h2></a>
+                    <div class="row">
+                        {% for item in news %}
+                        <div class="col-12 mb-4">
+                            <div class="news-card" data-news-id="{{ item['id'] }}">
+                                <div class="d-flex align-items-center h-100 p-3">
+                                    <div>
+                                        <h5>{{ item['news_article'] }}</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="block-wrapper">
+                    <a href="{{ url_for('cabinet') }}" class="btn btn-primary w-100 mb-3">Личный кабинет</a>
+                    <h3>О суде</h3>
+                    <h6>Наш городской суд был основан в 1995 году и на протяжении более 25 лет успешно осуществляет правосудие, защищая права и законные интересы граждан и организаций.</h6>
+                    <h6>Наши судьи обладают высокой квалификацией и многолетним опытом, что позволяет им принимать взвешенные и справедливые решения по самым сложным делам.</h6> 
+                    <h6>Мы стремимся сделать процесс судопроизводства максимально доступным и удобным для всех участников. Наш суд оснащен современным оборудованием.</h6>
+                    <h3>Контакты</h3>
+                    <h6>Суд расположен по адресу Ул. Колотушкина, 123</h6>
+                    <h6>Телефоны для связи: </h6>
+                    <h6>+777-777-777-77-22 - Отдел по работе с обращениями граждан</h6>
+                    <h6>+777-777-888-77-11 - Отдел по взаимодействию со СМИ</h6>
+                    <h6>+777-666-777-55-77 - Служба услуг</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.news-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const newsId = card.dataset.newsId;
+                window.location.href = `/news/${newsId}`;
+            });
+        });
+    </script>
+</body>
+
+</html>

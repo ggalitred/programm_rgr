@@ -1,0 +1,49 @@
+<html lang = "ru">
+	<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<meta charset = "UTF-8">
+		<title>Регистрация</title>
+		
+	</head>
+	
+	<div class="registration-form">
+  <h2>Регистрация</h2>
+  <form action = "/cabinet/register" method="post">
+    <div class="form-group">
+      <label for="surname">Фамилия:</label>
+      <input type="text" id="surname" name="surname" required>
+    </div>
+    <div class="form-group">
+      <label for="name">Имя:</label>
+      <input type="text" id="name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="patronymic">Отчество:</label>
+      <input type="text" id="patronymic" name="patronymic">
+    </div>
+    <div class="form-group">
+      <label for="email">Электронная почта:</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль:</label>
+      <input type="password" id="password" name="password" required>
+    </div>
+    <div class="form-group">
+      <label for="confirm-password">Подтверждение пароля:</label>
+      <input type="password" id="confirm-password" name="confirm-password" required>
+    </div>
+    <button type="submit">Зарегистрироваться</button>
+	<div class="register_login-link">
+      <a href="/cabinet/login">Войти в существующий аккаунт</a>
+    </div>
+  </form>
+</div>
+
+	
+	
+
+	<body>
+
+	</body>
+</html>

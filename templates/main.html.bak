@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang = "ru">
+	<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<meta charset = "UTF-8">
+		<title>Главная страница</title>
+		<style>
+			a.href {
+			color: black;
+			text-decoration: none;
+			}
+	</style>
+	</head>
+	
+	
+
+	<body>
+	<div id = "top-block">
+		<img src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Coat_of_Arms_of_Novosibirsk.svg/1200px-Coat_of_Arms_of_Novosibirsk.svg.png" height = "130px" width = "130px">
+		<p>Мировой суд Новосибирской области</p>
+	
+	</div>
+	
+	<div id = "main-block">
+		<div class = "row">
+			<div id = "news-block">
+				<p>Последние новости</p>
+				<ul>
+					<li>В суде вынесен приговор по делу о крупном мошенничестве с использованием электронных платежей.</li>
+					<li>Началось расследование уголовного дела о коррупции в местной администрации - суд приступил к опросу свидетелей.</li>
+					<li>Суд области принял решение о приостановлении деятельности строительной компании из-за экологических нарушений.</li>
+					<li>Суд принял решение о временном аресте подозреваемого в краже ценных предметов из местного музея до окончания следствия.</li>
+				</ul>
+			</div>
+			
+			<div id = "information-block">
+				<p>Наши сотрудники: </p>
+				<div class = "row">
+					<img src = {{ url_for('static', filename='judge.jpg')}} >
+					<p>Главный судья Иванова Анастасия Петровна</p>
+				</div>
+				
+				<div class = "row">
+					<img src = {{ url_for('static', filename='prokur.png')}} >
+					<p>Главный прокурор Смирнов Дмитрий Александрович</p>
+				</div>
+				
+				
+				
+				
+			</div>
+			
+			
+			<div class = "column">
+				<div id = "cabinet_info">
+					<a href = {{ url_for('login') }} class = "href">Перейти в личный кабинет</a>
+				</div>
+			
+				<div id = "schedule-block">
+					<p>Расписание работы</p>
+					<ul>
+					<li>Пн - 10:00 - 20:00</li>
+					<li>Вт - выходной</li>
+					<li>Ср - выходной</li>
+					<li>Чт - 10:00 - 20:00</li>
+					<li>Пт - 10:00 - 20:00</li>
+					<li>Сб - 12:00 - 18:00</li>
+					<li>Вс - выходной</li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	</body>
+</html>

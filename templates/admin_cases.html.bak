@@ -1,0 +1,58 @@
+
+<html lang="ru">
+<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<meta charset = "UTF-8">
+		<title>Дела</title>
+		
+	</head>
+<body>
+
+  <div class="card-container">
+	<!--<div class="card">
+      <h3 class="card-title">Дело № 123456</h3>
+	  <h5 class="card-title">Заявка от: Фамилия Имя Отчество</h2>
+      <div class="card-content">
+		
+    </div>
+	  <form>
+	  <button type="submit" class="pass_access">Одобрить доступ</button>
+	  <button type="submit" class="deny_access">Отклонить доступ</button>
+	  </form>
+	  
+    </div>-->
+	{% if rows|length == 0 %}
+		<div class="card">
+			<h3 class="card-title">На данный момент новых заявок нет!</h3>
+		<div class="card-content">
+		
+    </div>
+	
+	{% endif %}
+	
+	
+	{% for row in rows %}
+	<div class="card">
+      <h3 class="card-title">Заявка {{ row[0] }}. Дело № {{ row[1] }}</h3>
+	  <h5 class="card-title">Заявка от: Фамилия Имя Отчество</h2>
+      <div class="card-content">
+		
+    </div>
+	<div>
+	  <form action="/cabinet/cases/{{ row[0] }}/grant_access" method="post">
+		<input type="hidden" name="app_status" value="pass">
+		<button type="submit" class="pass_access">Одобрить доступ</button>
+	  </form>
+	  
+	  <form action="/cabinet/cases/{{ row[0] }}/grant_access" method="post">
+	  <input type="hidden" name="app_status" value="reject">
+	  <button type="submit" class="deny_access">Отклонить доступ</button>
+	  </form>
+	  </div>
+    </div>
+	{% endfor %}
+	
+	
+  </div>
+</body>
+</html>

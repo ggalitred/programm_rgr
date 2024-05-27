@@ -1,0 +1,40 @@
+<html lang = "ru">
+	<head>
+		<link rel="stylesheet" href={{ url_for('static', filename='css/styles.css')}} type = "text/css">
+		<script src={{ url_for('static', filename='js/cabinet_script.js') }}></script>
+		<meta charset = "UTF-8">
+		<title>Личный кабинет</title>
+		<style>
+			h5 {
+				 color: red;
+			}
+		</style>
+	</head>
+	
+
+	
+	
+<div class="user-profile-block">
+  <h3>Личный кабинет</h3>
+  {% if role == "admin" %}
+  <h5>Администратор</h5>
+  {% endif %}
+  <p>ФИО: {{ user_info[0] }} {{ user_info[1] }} {{ user_info[2] }}</p>
+  <p>Электронная почта: {{ user_info[3] }}</p>
+  <a href="/cabinet/cases" class="courts-btn">Список дел</a>
+  {% if role == "admin" %}
+  <a href="/cabinet/add_case" class="courts-btn">Добавить дело</a>
+  {% else %}
+  <a href="/cabinet/get_case" class="courts-btn">Запрос доступа к делу</a>
+  {% endif %}
+  
+  
+  <a href="/cabinet/logout" class="logout-btn">Выйти</a>
+</div>
+	
+	
+
+	<body>
+
+	</body>
+</html>
